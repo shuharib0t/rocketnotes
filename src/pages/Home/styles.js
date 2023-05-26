@@ -8,11 +8,11 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 250px auto;
   grid-template-rows: 105px 128px auto 64px;
-  grid-template-areas: 
-  "brand header"
-  "menu search"
-  "menu content"
-  "newnote content";
+  grid-template-areas:
+    "brand header"
+    "menu search"
+    "menu content"
+    "newnote content";
 
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
 `;
@@ -57,14 +57,28 @@ export const Search = styled.div`
 export const Content = styled.div`
   grid-area: content;
 
-  padding: 0 64px;
+  margin: 0 64px;
+  padding-right: 8px;
   overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.COLORS.ORANGE};
+    border-radius: 8px;
+  }
 `;
 
 export const NewNote = styled(Link)`
   grid-area: newnote;
 
+  font-size: 20px;
+  font-weight: 400;
+
   background-color: ${({ theme }) => theme.COLORS.ORANGE};
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
   border: none;
 
   display: flex;
