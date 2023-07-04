@@ -30,11 +30,6 @@ export function Details() {
     }
   }
 
-  async function handleUpdate() {
-    await api.update(`/notes/${params.id}`);
-    navigate(-1);
-  }
-
   useEffect(() => {
     async function fetchNote() {
       const response = await api.get(`/notes/${params.id}`);
@@ -51,7 +46,6 @@ export function Details() {
       {data && (
         <main>
           <Content>
-            <ButtonText title="update" onClick={handleUpdate} />
             <ButtonText title="Excluir nota" onClick={handleRemove} />
 
             <h1>{data.title}</h1>
